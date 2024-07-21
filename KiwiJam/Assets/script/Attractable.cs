@@ -105,7 +105,16 @@ public class Attractable : MonoBehaviour
 
         if(currentAttractor.tag =="Win"){
             SceneManager.LoadScene("WinResult");
+
+            StartCoroutine(TransitionToScene());
         }
+    }
+
+    private IEnumerator TransitionToScene()
+    {
+        yield return SceneManager.LoadSceneAsync("WinResult", LoadSceneMode.Additive);
+        
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(SceneManager.sceneCount - 1));
     }
 
     void RotateToCenter() //圍著中心轉
