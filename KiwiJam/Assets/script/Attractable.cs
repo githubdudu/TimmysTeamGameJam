@@ -104,9 +104,10 @@ public class Attractable : MonoBehaviour
         }
 
         if(currentAttractor.tag =="Win"){
-            SceneManager.LoadScene("WinResult");
+            // SceneManager.LoadScene("WinResult");
+            TransitionManager.Instance.Transition("present", "WinResult");
 
-            StartCoroutine(TransitionToScene());
+            // StartCoroutine(TransitionToScene());
         }
     }
 
