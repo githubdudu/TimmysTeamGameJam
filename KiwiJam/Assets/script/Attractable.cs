@@ -98,6 +98,7 @@ public class Attractable : MonoBehaviour
         {
             Debug.LogError("Add currentAttractor");
             currentAttractor = attractorObj;
+            rigdibody.velocity = Vector2.zero;
             transform.SetParent(currentAttractor.transform, true);
         }
     }
