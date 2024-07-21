@@ -6,6 +6,8 @@ public class MoveUpDown : MonoBehaviour
 {
     public float amplitude = 1f; // The height of the oscillation
     public float frequency = 5000f; // The speed of the oscillation
+    [HideInInspector] public GameObject parentCircle;
+    [HideInInspector] public bool hasTriggered = false;
 
     private Vector3 startPosition;
 
@@ -13,54 +15,91 @@ public class MoveUpDown : MonoBehaviour
 
     public Transform parent;
 
+    //For juming game
+    public float speed = 5f;
+    public float jumpSpeed = 8f;
+    private float direction = 0f;
+    private Rigidbody2D player;
+
     void Start()
     {
         // Record the starting position of the ball
-        startPosition = transform.localPosition;
+        player = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        // Calculate the new Y position
-        float newY = Mathf.Sin(frequency * Time.time) * amplitude;
+        direction = Input.GetAxis("Horizontal");
+
+        if (direction > 0f)
+        {
+            player.velocity = new Vector2(direction * speed, player.velocity.y);
+        }
+        else if (direction < 0f)
+        {
+            player.velocity = new Vector2(direction * speed, player.velocity.y);
+        }
+        else
+        {
+            player.velocity = new Vector2(0, player.velocity.y);
+        }
+
+        // if (Input.GetButtonDown("Jump"))
+        // {
+        //     player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+        // }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log($"Jump!!!");
+            player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+        }
         // Debug.LogError($"newY={newY}");
         // Update the ball's position
-        transform.localPosition = new Vector3(0, newY, 0);
         // OnTriggerEnter();
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     newY
-        // }
+        //         if (Input.GetKeyDown(KeyCode.Space))
+        //         {
+        //             amplitude = amplitude + 0.05f
+        // ;
+        //         }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        //Check to see if the tag on the collider is equal to Enemy
-        if (other.tag == "Jump")
-        {
-            // Sets "newParent" as the new parent of the child GameObject.
-            // child.transform.SetParent(other);
+    // void CheckEdgeAndSwitch()
+    // {
+    //     if (parentCircle != null)
+    //     {
+    //         float distanceToParentCenter = Vector2.Distance(transform.position, parentCircle.transform.position);
+    //         CircleCollider2D parentCollider = parentCircle.GetComponent<CircleCollider2D>();
 
-            // Get its parent and make parent disappear
-            // String name = child.transform.root;
-            // Debug.Log($"Current parent={child.transform.root}");
-            // Destroy(child.transform.parent.gameObject);
+    //         if (parentCollider != null)
+    //         {
+    //             float parentRadius = parentCollider.radius * parentCircle.transform.localScale.x;
 
-            Renderer rend = child.transform.parent.GetComponent<Renderer>();
-            Debug.Log($"Renderer status={rend}");
-            rend.enabled = false;
+    //             if (Mathf.Abs(distanceToParentCenter - parentRadius) < 0.1f)
+    //             {
+    //                 SwitchToLargerCircle();
+    //             }
+    //         }
+    //     }
+    // }
 
-            // Same as above, except worldPositionStays set to false
-            // makes the child keep its local orientation rather than
-            // its global orientation.
-            child.transform.SetParent(other.transform, false);
+    // void SwitchToLargerCircle()
+    // {
+    //     Rotate parentCircleScript = parentCircle.GetComponent<Rotate>();
+    //     if (parentCircleScript != null && parentCircleScript.largerCircle != null)
+    //     {
+    //         // Hide the current parent circle
+    //         parentCircle.SetActive(false);
 
+    //         // Set the larger circle as the new parent
+    //         parentCircle = parentCircleScript.largerCircle;
+    //         transform.SetParent(parentCircle.transform, false);
 
+    //         // Make the new parent circle visible
+    //         parentCircle.SetActive(true);
 
-            // Setting the parent to ‘null’ unparents the GameObject
-            // and turns child into a top-level object in the hierarchy
-            // child.transform.SetParent(null);
-            Debug.Log($"Triggered by New jump parent={other}");
-        }
-    }
+    //         Debug.Log($"Switched to larger circle: {parentCircle.name}");
+    //     }
+    // }
 }
