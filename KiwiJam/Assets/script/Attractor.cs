@@ -23,20 +23,30 @@ public class Attractor : MonoBehaviour
 
     void FixedUpdate()
     {
+        RotateToCenter();
         AttractObjects();
     }
 
     void SetAttractedObjects()
     {
-        AttractedObjects = Physics2D.OverlapCircleAll(attractorTransform.position, Radius, AttractionLayer).ToList();
+        AttractedObjects = Physics2D.OverlapCircleAll(attractorTransform.position, Radius + 3, AttractionLayer).ToList();
     }
 
     void AttractObjects()
     {
         for (int i = 0; i < AttractedObjects.Count; i++)
         {
-            AttractedObjects[i].GetComponent<Attractable>().Attract(this);
+            Attractable attractable = AttractedObjects[i].GetComponent<Attractable>();
+            if (attractable.currentAttractor == null)
+            {
+                attractable.Attract(this);
+            }
         }
+    }
+
+    void RotateToCenter() //������ת
+    {
+        transform.Rotate(new Vector3(0, 0, Time.deltaTime * 30));
     }
 
     void OnDrawGizmosSelected()
