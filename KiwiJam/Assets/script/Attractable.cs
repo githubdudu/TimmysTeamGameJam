@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Attractable : MonoBehaviour
@@ -100,6 +101,10 @@ public class Attractable : MonoBehaviour
             currentAttractor = attractorObj;
             rigdibody.velocity = Vector2.zero;
             transform.SetParent(currentAttractor.transform, true);
+        }
+
+        if(currentAttractor.tag =="Win"){
+            SceneManager.LoadScene("WinResult");
         }
     }
 
