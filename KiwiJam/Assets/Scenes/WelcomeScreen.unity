@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFrom: WelcomeScreen
-  sceneToGo: Game
+  sceneToGo: GameMap
 --- !u!61 &1694359032
 BoxCollider2D:
   m_ObjectHideFlags: 0
