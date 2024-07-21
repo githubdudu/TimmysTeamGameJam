@@ -9,6 +9,12 @@ public class Attractable : MonoBehaviour
     [SerializeField] private float gravityStrength = 100;
     public float flapStrength; //每次跳的高度
 
+    //For juming game
+    public float speed = 5f;
+    public float jumpSpeed = 8f;
+    private float direction = 0f;
+    // private Rigidbody2D player;
+
     Transform transform;
     Collider2D collider;
     Rigidbody2D rigdibody;
@@ -39,10 +45,17 @@ public class Attractable : MonoBehaviour
             if (rotateToCenter) RotateToCenter();
             rigdibody.gravityScale = 0;
 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log($"Jump!!!");
+                rigdibody.velocity = new Vector2(rigdibody.velocity.x, jumpSpeed);
+            }
+
         }
         else
         {
             rigdibody.gravityScale = 1;
+            
         }
     }
 
