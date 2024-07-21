@@ -41,7 +41,7 @@ public class Attractable : MonoBehaviour
             {
                 Debug.LogError("Remove currentAttractor");
                 currentAttractor = null;
-                // transform.SetParent(null, true);
+                transform.SetParent(null, true);
                 return;
             }
             if (rotateToCenter) RotateToCenter();
