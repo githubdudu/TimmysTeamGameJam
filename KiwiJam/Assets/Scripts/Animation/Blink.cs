@@ -1,3 +1,20 @@
+/** 
+    * Game: STARWAY HOME
+    * The author of this game:
+    * @author @Timmy
+    * @author @Zephyr
+    * @author @Jacky
+    * @author @Daniel
+    * @author @Tiffiny
+    * @author @Dewey
+    *
+    * @special thanks to @Boying Zhao @Zikai Zhou
+    * @special thanks to @Nora @Sven
+    * 
+    * @version 1.0
+    * @date 2024
+    * 
+    */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
