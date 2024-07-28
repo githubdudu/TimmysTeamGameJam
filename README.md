@@ -3,6 +3,8 @@ Timmy's team for Kiwijam Auckland 2024
 
 Game: STARWAY HOME
 
+## Congratulations, we made it!
+
 The author of this game:
 
 @author @[Timmy](https://github.com/tiiiiiimmy)
