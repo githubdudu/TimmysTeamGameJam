@@ -13,12 +13,12 @@ public class TransitionManager : Singleton<TransitionManager>
     public float fadeDuration;
     private bool isFade;
     private bool canTransition;
-    // Start is called before the first frame update
+    readonly private string FIRST_SCENE = "WelcomeScreen";
+
     private void Start()
     {
-        
+        StartCoroutine(TransitionToScene(string.Empty, FIRST_SCENE));
     }
-
     private void OnEnable()
     {
         EventHandler.GameStateChangedEvent += OnGameStateChangedEvent;
@@ -37,7 +37,7 @@ public class TransitionManager : Singleton<TransitionManager>
     
     private void OnStartNewGameEvent(int gameWeek)
     {
-        StartCoroutine(TransitionToScene("Menu", startScene));
+        StartCoroutine(TransitionToScene(FIRST_SCENE, startScene));
     }
 
     public void Transition(string from, string to)
