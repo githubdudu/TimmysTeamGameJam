@@ -5,22 +5,22 @@ Game: STARWAY HOME
 
 The author of this game:
 
-@author @Timmy 
+@author @[Timmy](https://github.com/tiiiiiimmy)
 
-@author @Zephyr
+@author @[Zephyr](https://github.com/Zephyr724)
 
-@author @Jacky
+@author @[Jacky](https://github.com/Fantasticboy521)
 
-@author @Daniel
+@author @[Daniel](https://github.com/Daniel114514advawv)
 
-@author @Tiffiny
+@author @[Tiffiny](https://github.com/tiff777)
 
-@author @Dewey
+@author @[Dewey](https://github.com/githubdudu)
 
 Special thanks to @Boying Zhao @Zikai 
 Zhou
 
-Special thanks to @Nora @Sven
+Special thanks to @[Nora](https://github.com/YunjieXuSS) @Sven
 
 
 
