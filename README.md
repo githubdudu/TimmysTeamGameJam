@@ -15,7 +15,7 @@ The author of this game:
 
 @author @[Daniel](https://github.com/Daniel114514advawv)
 
-@author @[Tiffiny](https://github.com/tiff777)
+@author @[Tiffini](https://github.com/tiff777)
 
 @author @[Dewey](https://github.com/githubdudu)
 
